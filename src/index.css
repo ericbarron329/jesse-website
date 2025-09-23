@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: [
+    {
+      light: {
+        "primary": "#064c86",       
+        "secondary": "#67bed9",
+        /* "accent": "#37cdbe",
+        "neutral": "#3d4451",
+        "base-100": "#ffffff", */
+      },
+    },
+  ];
+
+}
+
+@layer base {
+  body {
+    font-family: 'HelveticaCustom', cursive;
+    @apply bg-[#fbf5ed] text-gray-900 font-sans;
+  }
+}
+
+
+@font-face {
+  font-family: 'HelveticaCustom';
+  src: url('/fonts/Helvetica.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
