@@ -1,4 +1,9 @@
-export default function PricingCard({ highlight, title, price, features }) {
+import { useNavigate } from "react-router-dom";
+
+export default function PricingCard({ highlight, title, price, features, link }) {
+
+    const navigate = useNavigate();
+
   return (
     <div className="card w-96 bg-base-100 shadow-sm">
       <div className="card-body">
@@ -40,9 +45,10 @@ export default function PricingCard({ highlight, title, price, features }) {
 
         {/* Button */}
         <div className="mt-auto">
-          <button className="btn btn-primary btn-block">Start Now</button>
+          <button className="btn btn-primary btn-block" onClick={() => navigate(`/${link}`)}>Learn More</button>
         </div>
       </div>
     </div>
   );
 }
+    `1`

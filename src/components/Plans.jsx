@@ -1,46 +1,120 @@
-function PlanCard({ number, title, children }) {
+import { useNavigate } from "react-router-dom";
+import { Check, X } from "lucide-react"; // icons for checklist
+
+// ----- PlanCard -----
+function PlanCard({ number, title, price, features, highlight, link }) {
+  const navigate = useNavigate();
+
   return (
-    <div className="bg-[#fdf9f4]/95 p-6 sm:p-8 relative rounded-lg shadow-lg w-full">
+    <div
+      className={`relative rounded-2xl shadow-lg w-full max-w-sm transition transform hover:scale-105 hover:shadow-xl 
+      ${highlight ? "border-4 border-[#064c86] bg-white" : "bg-[#fdf9f4]/95"}`}
+    >
       {/* Circle Number */}
-      <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow">
-        <span className="text-lg font-semibold">{number}</span>
+      <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow font-semibold">
+        {number}
       </div>
 
-      <h3 className="text-lg sm:text-xl font-medium mt-8 mb-4">{title}</h3>
-      <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">{children}</p>
+      {/* Highlight Badge */}
+      {highlight && (
+        <span className="absolute top-4 right-4 bg-[#064c86] text-white text-xs px-3 py-1 rounded-full">
+          {highlight}
+        </span>
+      )}
 
-      <button className="bg-gray-800 text-white px-4 sm:px-5 py-2 rounded-md hover:bg-gray-700 transition text-sm sm:text-base">
-        More Info
-      </button>
+      <div className="p-8 flex flex-col h-full">
+        {/* Title + Price */}
+        <h3 className="text-xl font-semibold mb-2">{title}</h3>
+        {price && (
+          <p className="text-2xl font-bold text-[#064c86] mb-4">{price}</p>
+        )}
+
+        {/* Features Checklist */}
+        <ul className="flex-1 space-y-2 mb-6">
+          {features.map((f, idx) => (
+            <li key={idx} className="flex items-center text-gray-700 text-sm">
+              {f.included ? (
+                <Check className="w-4 h-4 text-green-600 mr-2" />
+              ) : (
+                <X className="w-4 h-4 text-red-500 mr-2" />
+              )}
+              {f.label}
+            </li>
+          ))}
+        </ul>
+
+        {/* Button */}
+        <button
+          onClick={() => navigate(`/${link}`)}
+          className="bg-[#064c86] text-white px-5 py-2 rounded-md hover:bg-[#04355e] transition text-sm font-medium"
+        >
+          More Info
+        </button>
+      </div>
     </div>
-  )
+  );
 }
 
+// ----- Plans Section -----
 export default function Plans() {
   return (
     <section
-      className="relative min-h-[90vh] flex items-center rounded-3xl overflow-hidden my-12"
+      className="relative min-h-[90vh] flex items-center overflow-hidden my-12"
       style={{
         backgroundImage: "url('/iStock-3.jpg')",
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center right",
       }}
     >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/30"></div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <PlanCard number="1" title="Basic Plan">
-            The Basic Plan is designed for those who want clear, hands-on guidance to get their finances organized and moving in the right direction. Together, we set up the right accounts (checking, savings, brokerage, retirement), establish contributions, clean up current retirement and brokerage accounts, and build a balance sheet so everything can be seen in one place. We’ll also project estimated taxes, create a plan for managing debt, and review your current cash flow so you have a clear picture of where your money is going. The goal is to set everything up correctly from the start, so you can build a strong financial foundation with confidence.
-          </PlanCard>
+      {/* Left half only */}
+      <div className="relative z-10 w-full md:w-1/2 px-6 md:px-12">
+        {/* Row of cards */}
+        <div className="flex flex-col md:flex-row gap-6">
+          <PlanCard
+            number="1"
+            title="Basic Plan"
+            price="$400"
+            link="basic"
+            features={[
+              { label: "Account setup & cleanup", included: true },
+              { label: "Retirement & Brokerage Review", included: true },
+              { label: "Tax projections", included: true },
+              { label: "Debt Management", included: true },
+              { label: "Cash Flow Review", included: true },
+              { label: "Retirement Savings Tracking", included: false },
+              { label: "Tax Strategies", included: false },
+              { label: "Business & Rental Planning", included: false },
+              { label: "Education Funding", included: false },
+              { label: "Insurance Review", included: false },
+              { label: "Estate Planning", included: false },
+            ]}
+          />
 
-          <PlanCard number="2" title="Premier Plan">
-            The Premier Plan is designed for those with more complex financial needs and includes everything in the Basic Plan plus a deeper level of analysis. This includes calculating how much you need to save each year to stay on track for retirement; evaluating home or rent affordability; planning around business or self-employment income; creating strategies for one or more rental properties; mapping out education funding for children, whether public or private college or even private high school; reviewing insurance to protect your income and assets; and covering estate planning basics such as wills, trusts, and beneficiaries.
-          </PlanCard>
+          <PlanCard
+            number="2"
+            title="Premier Plan"
+            price="$900"
+            link="premier"
+            highlight="Most Popular"
+            features={[
+              { label: "Account setup & cleanup", included: true },
+              { label: "Retirement & Brokerage Review", included: true },
+              { label: "Tax projections", included: true },
+              { label: "Debt Management", included: true },
+              { label: "Cash Flow Review", included: true },
+              { label: "Retirement Savings Tracking", included: true },
+              { label: "Tax Strategies", included: true },
+              { label: "Business & Rental Planning", included: true },
+              { label: "Education Funding", included: true },
+              { label: "Insurance Review", included: true },
+              { label: "Estate Planning", included: true },
+            ]}
+          />
         </div>
       </div>
     </section>
-  )
+  );
 }

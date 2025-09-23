@@ -12,7 +12,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative h-[95vh] flex items-center rounded-b-2xl overflow-hidden"
+      className="relative h-[95vh] flex items-center overflow-hidden"
       style={{
         backgroundImage: "url('/iStock-hero.jpg')",
         backgroundSize: "130%",          

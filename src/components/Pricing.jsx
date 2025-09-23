@@ -33,6 +33,7 @@ export default function Pricing() {
             label: f,
             included: i < 5, // first 5 included
           }))}
+          link='basic'
         />
 
         {/* Premier Plan */}
@@ -44,6 +45,7 @@ export default function Pricing() {
             label: f,
             included: true, // everything included
           }))}
+          link='premier'
         />
 
         {/* Financial Update */}
@@ -56,6 +58,7 @@ export default function Pricing() {
             { label: "Model updates", included: true },
             { label: "Adjustments for life changes", included: true },
           ]}
+          link='financial-update'
         />
       </div>
     </section>
