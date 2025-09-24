@@ -7,8 +7,8 @@ function PlanCard({ number, title, price, features, highlight, link }) {
 
   return (
     <div
-      className={`relative rounded-2xl shadow-lg w-full max-w-sm transition transform hover:scale-105 hover:shadow-xl 
-      ${highlight ? "border-4 border-[#064c86] bg-white" : "bg-[#fdf9f4]/95"}`}
+      className={`relative rounded-2xl shadow-lg w-full max-w-sm transition transform hover:scale-105 hover:shadow-xl md:max-h[16rem] mt-10 mb-8 md:mt-14 md:mb-12
+        ${highlight ? "border-4 border-[#064c86] bg-white" : "bg-[#fdf9f4]/95"}`}
     >
       {/* Circle Number */}
       <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow font-semibold">
@@ -59,7 +59,7 @@ function PlanCard({ number, title, price, features, highlight, link }) {
 export default function Plans() {
   return (
     <section
-      className="relative min-h-[90vh] flex items-center overflow-hidden my-12"
+      className="relative min-h-[90vh] flex items-center overflow-hidden"
       style={{
         backgroundImage: "url('/iStock-3.jpg')",
         backgroundSize: "cover",
@@ -70,7 +70,7 @@ export default function Plans() {
       <div className="absolute inset-0 bg-black/30"></div>
 
       {/* Left half only */}
-      <div className="relative z-10 w-full md:w-1/2 px-6 md:px-12">
+      <div className="relative z-10 w-full md:w-1/2 px-6 md:px-12 ">
         {/* Row of cards */}
         <div className="flex flex-col md:flex-row gap-6">
           <PlanCard

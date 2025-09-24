@@ -1,23 +1,29 @@
 import { useNavigate } from "react-router-dom";
 
 export default function PricingCard({ highlight, title, price, features, link }) {
-
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
-    <div className="card w-96 bg-base-100 shadow-sm">
+    <div
+      className="
+        card w-full max-w-full               /* mobile: take full width */
+        sm:max-w-md                          /* small screens: constrain a bit */
+        md:max-w-sm                          /* md+: classic card width */
+        bg-base-100 shadow-sm overflow-hidden
+      "
+    >
       <div className="card-body">
         {/* Highlight Badge */}
         {highlight ? (
-        <span className="badge badge-xs badge-warning">{highlight}</span>
+          <span className="badge badge-xs badge-warning">{highlight}</span>
         ) : (
-        <span className="invisible">placeholder</span>
+          <span className="invisible">placeholder</span>
         )}
 
         {/* Title + Price */}
-        <div className="flex justify-between">
-          <h2 className="text-3xl font-bold">{title}</h2>
-          <span className="text-xl">{price}</span>
+        <div className="flex items-start justify-between gap-3">
+          <h2 className="text-2xl sm:text-3xl font-bold break-words">{title}</h2>
+          <span className="text-lg sm:text-xl whitespace-nowrap">{price}</span>
         </div>
 
         {/* Features */}
@@ -47,10 +53,10 @@ export default function PricingCard({ highlight, title, price, features, link })
         <div className="mt-auto">
           <button
             onClick={() => navigate(`/${link}`)}
-            className="bg-[#064c86] text-white px-5 py-2 rounded-md hover:bg-[#04355e] transition text-sm font-medium btn-block"
-            >
-          More Info
-        </button>
+            className="btn btn-primary btn-block bg-[#064c86] hover:bg-[#04355e] border-0"
+          >
+            More Info
+          </button>
         </div>
       </div>
     </div>
