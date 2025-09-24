@@ -1,4 +1,37 @@
+import { useState } from "react";
+
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData();
+      formData.append("email", email);
+
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbxvGLWMQCDTWPFu7nDUj8i_Nv0Fm0LExemqrovqIl0lGRlOmxvhT4766f5L_16tXT_UQg/exec",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const result = await response.json();
+
+      if (result.result === "success") {
+        setStatus("✅ Thanks for subscribing!");
+        setEmail("");
+      } else {
+        setStatus("❌ Something went wrong.");
+      }
+    } catch (err) {
+      setStatus("⚠️ Error connecting to server.");
+    }
+  };
+
   return (
     <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 mt-20">
       {/* Logo Column */}
@@ -34,7 +67,7 @@ export default function Footer() {
       </nav>
 
       {/* Newsletter Section */}
-      <form>
+      <form onSubmit={handleSubmit}>
         <h6 className="footer-title">Newsletter</h6>
         <fieldset className="w-80">
           <label className="label">
@@ -42,15 +75,24 @@ export default function Footer() {
           </label>
           <div className="join">
             <input
-              type="text"
-              placeholder="username@site.com"
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="example@gmail.com"
               className="input input-bordered join-item"
+              required
             />
-        <button className="btn btn-primary bg-[#064c86] border-[#064c86] focus:outline-none focus:ring-2 focus:ring-[#064c86] join-item">
-            Subscribe
-        </button>
-
+            <button
+              type="submit"
+              className="bg-[#064c86] text-white px-5 py-2  hover:bg-[#04355e] transition text-sm font-medium"
+            >
+              Subscribe
+            </button>
           </div>
+          {status && (
+            <p className="text-sm mt-2 text-gray-700">{status}</p>
+          )}
         </fieldset>
       </form>
     </footer>

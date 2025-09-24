@@ -6,6 +6,7 @@ import Contact from "./pages/Contact"
 import BasicPlan from "./pages/plans/basic"
 import Premier from "./pages/plans/premier"
 import FinancialUpdate from "./pages/plans/financial-update"
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -15,9 +16,9 @@ function App() {
         <Route path="/pricing" element={ <Prices/> } />
         <Route path="/contact" element={ <Contact /> } />
         
-        <Route path="/basic" element={ <BasicPlan /> } />
-        <Route path="/premier" element={ <Premier /> } />
-        <Route path="/financial-update" element={ <FinancialUpdate /> } />
+        <Route path="/basic" element={ <><ScrollToTop /><BasicPlan /></> } />
+        <Route path="/premier" element={ <><ScrollToTop /><Premier /></> } />
+        <Route path="/financial-update" element={ <><ScrollToTop /><FinancialUpdate /></> } />
     
     </Routes>
   )

@@ -54,7 +54,7 @@ export default function PricingComparison() {
         <a href="#" className="btn btn-neutral px-8">
           Choose Basic - $400
         </a>
-        <a href="#" className="btn btn-primary px-8">
+        <a href="#" className="btn btn-primary px-8 bg-[#064c86] border-[#064c86]">
           Choose Premier - $900
         </a>
       </div>

@@ -57,11 +57,16 @@ export default function HowItWorks() {
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <img
-            src="/iStock-1.jpg" // ✅ place your image in /public
-            alt="How it works"
-            className="w-full rounded-3xl shadow-lg object-cover"
-          />
+        <div className="relative h-[60vh] rounded-2xl overflow-hidden">
+            <img
+                src="/iStock-1.jpg"
+                alt="Desc"
+                className="absolute inset-0 w-full h-full object-cover
+                        scale-[1.35]          /* zoom */
+                        object-[10%_40%]"     /* focus point */
+            />
+        </div>
+
         </motion.div>
       </div>
     </section>

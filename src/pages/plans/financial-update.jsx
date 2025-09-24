@@ -91,22 +91,6 @@ export default function FinancialUpdate() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-[#064c86] text-white text-center">
-        <h2 className="text-3xl font-bold mb-4">
-          Ready to take control of your money?
-        </h2>
-        <p className="mb-6">
-          Schedule your free consultation today.
-        </p>
-        <a
-          href="https://calendly.com"
-          className="bg-white text-[#064c86] px-6 py-3 rounded-md font-semibold hover:bg-gray-200"
-        >
-          Book Now
-        </a>
-      </section>
-
       <Footer />
     </div>
   );

@@ -12,11 +12,11 @@ export default function Hero() {
 
   return (
     <section
-      className="relative h-[95vh] flex items-center overflow-hidden"
+      className="relative h-[95vh] overflowhidd flex items-center"
       style={{
         backgroundImage: "url('/iStock-hero.jpg')",
-        backgroundSize: "130%",          
-        backgroundPosition: "center right",
+        backgroundSize: "cover",          
+        backgroundPosition: "center",
       }}
     >
       {/* Overlay */}

@@ -45,10 +45,14 @@ export default function PricingCard({ highlight, title, price, features, link })
 
         {/* Button */}
         <div className="mt-auto">
-          <button className="btn btn-primary btn-block" onClick={() => navigate(`/${link}`)}>Learn More</button>
+          <button
+            onClick={() => navigate(`/${link}`)}
+            className="bg-[#064c86] text-white px-5 py-2 rounded-md hover:bg-[#04355e] transition text-sm font-medium btn-block"
+            >
+          More Info
+        </button>
         </div>
       </div>
     </div>
   );
 }
-    `1`
