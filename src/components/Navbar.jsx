@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Logo from "/Logo.png"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,17 +12,17 @@ export default function Navbar() {
         {/* Left: Logo */}
         <div className="flex-shrink-0">
           <a href="/">
-            <img src="/Logo.png" alt="Logo" className="h-12" />
+            <img src={Logo} alt="Logo" className="h-12" />
           </a>
         </div>
 
         {/* Right: Nav + CTA (desktop) */}
         <div className="hidden md:flex items-center gap-8">
           <nav className="flex items-center gap-8 text-gray-700 font-medium">
-            <a href="/" className="hover:text-blue-600">Home</a>
-            <a href="/about" className="hover:text-blue-600">About</a>
-            <a href="/pricing" className="hover:text-blue-600">Plans & Pricing</a>
-            <a href="/contact" className="hover:text-blue-600">Contact</a>
+            <a href="/jesse-website/" className="hover:text-blue-600">Home</a>
+            <a href="/jesse-website/about" className="hover:text-blue-600">About</a>
+            <a href="/jesse-website/pricing" className="hover:text-blue-600">Plans & Pricing</a>
+            <a href="/jesse-website/contact" className="hover:text-blue-600">Contact</a>
           </nav>
           <a
             href="https://calendly.com"
@@ -74,28 +75,28 @@ export default function Navbar() {
                       }`}
         >
           <a
-            href="/"
+            href="/jesse-website"
             onClick={close}
             className="block w-full px-3 py-3 rounded-md text-lg text-gray-900 hover:bg-black/5"
           >
             Home
           </a>
           <a
-            href="/about"
+            href="/jesse-website/about"
             onClick={close}
             className="block w-full px-3 py-3 rounded-md text-lg text-gray-900 hover:bg.black/5"
           >
             About
           </a>
           <a
-            href="/pricing"
+            href="/jesse-website/pricing"
             onClick={close}
             className="block w-full px-3 py-3 rounded-md text-lg text-gray-900 hover:bg-black/5"
           >
             Plans & Pricing
           </a>
           <a
-            href="/contact"
+            href="/jesse-website/contact"
             onClick={close}
             className="block w-full px-3 py-3 rounded-md text-lg text-gray-900 hover:bg-black/5"
           >

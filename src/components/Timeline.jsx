@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import stockimage from '/JesseAboutImage.JPG';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -14,7 +15,7 @@ export default function Timeline() {
         {/* Left side: Image / Portrait / Graphic */}
         <div className="flex justify-center items-center">
         <img
-            src="/JesseAboutImage.JPG"
+            src={stockimage}
             alt="Jesse Barron"
             className="rounded-2xl shadow-lg max-w-md md:max-w-lg w-full h-auto object-cover"
         />

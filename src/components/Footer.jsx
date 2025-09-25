@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from '/Logo.png'
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -36,7 +37,7 @@ export default function Footer() {
     <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 mt-20">
       {/* Logo Column */}
       <aside>
-        <img src="/Logo.png" alt="JBFP Logo" className="w-32 mb-4" />
+        <img src={logo} alt="JBFP Logo" className="w-32 mb-4" />
         <p className="text-sm text-gray-600">
           © {new Date().getFullYear()} JBFP. <br />
           All rights reserved.

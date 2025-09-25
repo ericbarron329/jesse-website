@@ -1,5 +1,6 @@
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import stockimage from '/iStock-3.jpg';
 
 export default function BasicPlan() {
   return (
@@ -9,7 +10,7 @@ export default function BasicPlan() {
       {/* Hero */}
     <section
     className="hero min-h-[50vh] bg-cover bg-center relative"
-    style={{ backgroundImage: "url('/iStock-3.jpg')" }}
+    style={{ backgroundImage: `url(${stockimage})` }}
     >
     {/* Overlay */}
     <div className="absolute inset-0 bg-black/50"></div>

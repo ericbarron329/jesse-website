@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import JesseAboutImage from '/JesseAboutImage.jpg'
 
 export default function AboutComponent() {
   return (
@@ -13,7 +14,7 @@ export default function AboutComponent() {
           viewport={{ once: true }}
         >
           <img
-            src="/JesseAboutImage.JPG"
+            src={JesseAboutImage}
             alt="Jesse Barron"
             className="w-full rounded-3xl object-cover shadow-md"
           />

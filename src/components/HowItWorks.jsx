@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import stockimage from '/iStock-1.jpg';
 
 export default function HowItWorks() {
   return (
@@ -59,7 +60,7 @@ export default function HowItWorks() {
         >
         <div className="relative h-[60vh] rounded-2xl overflow-hidden">
             <img
-                src="/iStock-1.jpg"
+                src={stockimage}
                 alt="Desc"
                 className="absolute inset-0 w-full h-full object-cover
                         scale-[1.35]          /* zoom */

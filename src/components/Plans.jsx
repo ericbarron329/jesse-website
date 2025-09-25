@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Check, X } from "lucide-react"; // icons for checklist
+import stockimage from '/iStock-3.jpg';
 
 // ----- PlanCard -----
 function PlanCard({ number, title, price, features, highlight, link }) {
@@ -61,7 +62,7 @@ export default function Plans() {
     <section
       className="relative min-h-[90vh] flex items-center overflow-hidden"
       style={{
-        backgroundImage: "url('/iStock-3.jpg')",
+        backgroundImage: `url(${stockimage})`,
         backgroundSize: "cover",
         backgroundPosition: "center right",
       }}

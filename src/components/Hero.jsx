@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import stockhero from '/iStock-hero.jpg';
 
 export default function Hero() {
   const fadeUp = {
@@ -14,7 +15,7 @@ export default function Hero() {
     <section
       className="relative h-[95vh] overflowhidd flex items-center"
       style={{
-        backgroundImage: "url('/iStock-hero.jpg')",
+        backgroundImage: `url(${stockhero})`,
         backgroundSize: "cover",          
         backgroundPosition: "center",
       }}
